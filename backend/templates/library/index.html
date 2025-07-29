@@ -3,6 +3,15 @@
 {% block title %}Library{% endblock %}
 
 {% block content %}
-<h1>Library</h1>
-<p>This is the events section of the site.</p>
+<div class="card">
+    {% for item in library%}
+    <div class="item">
+        <img src="{{ item.image.url }}" alt="{{ item.title }}" class="card-image">
+        <p class="card-title">{{item.title}}</p>
+        <p class="card-description">{{item.short_description}}</p>
+        <!-- <p class="card-price">{{item.price}}</p> -->
+        <a href="{% url 'library_detail' item.pk %}">Read more</a>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
